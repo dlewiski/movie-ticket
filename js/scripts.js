@@ -39,16 +39,29 @@ Ticket.prototype.price = function(){
   return cost - 1;
 }
 
-function showTicket() {
-  $(".ticket-display").append(
-    '<div class="well">' +
-      '<h3>Movie Ticket</h3>' +
-      '<img class="ticketImage" src="img/bad-moms.jpg" alt="bad moms poster">' +
-      '<ul>' +
-        '<li id="ticketTime">12:00 PM</li>' +
-        '<li id="ticketPrice">$15</li>' +
-      '</ul>');
+Ticket.prototype.showTicket = function() {
 
+  var ticketHTML =  '<div class="well">' +
+      '<h3>Movie Ticket</h3>' +
+      '<img class="ticketImage" src="' + this.ticketImage() + '" alt="bad moms poster">' +
+      '<ul>' +
+        '<li id="ticketTime">' + this.time + '</li>' +
+        '<li id="ticketPrice">' + '$' + this.price() + '</li>' +
+      '</ul>';
+  return ticketHTML;
+
+}
+
+Ticket.prototype.ticketImage = function() {
+  if (this.movie === "The Departed")
+    var image = "img/departed.jpg";
+  if (this.movie === "Bad Moms" )
+    var image = "img/bad-moms.jpg";
+  if (this.movie === "Pitch Perfect")
+    var image = "img/pitch-perfect.jpg";
+  if (this.movie === "Lady Bird" )
+    var image = "img/lady-bird.png";
+  return image;
 }
 
 
@@ -58,14 +71,14 @@ function showTicket() {
 $(document).ready(function() {
 
   $("#new-ticket").submit(function(event) {
-
     event.preventDefault();
     var ticket = ticketMaker();
     alert (ticket.price());
+    $(".ticket-display").append(ticket.showTicket());
 
-    showTicket();
-    $("#ticketTime").text(ticket.time);
-    $("#ticketPrice").text("$" + ticket.price());
+
+    // $("#ticketTime").text(ticket.time);
+    // $("#ticketPrice").text("$" + ticket.price());
 
   });
 });
