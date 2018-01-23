@@ -1,0 +1,20 @@
+.ticketImage{
+  width: 200px;
+  display: inline-block;
+}
+
+#ticketTime {
+
+}
+
+#ticketPrice {
+  color: green;
+
+}
+
+ul{
+  display: inline-block;
+}
+li{
+  list-style-type: none;
+}
