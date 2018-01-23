@@ -69,11 +69,11 @@ Ticket.prototype.ticketImage = function() {
 
 //user interface logic
 $(document).ready(function() {
-
+  $('#popcorn').makeItRain();
   $("#new-ticket").submit(function(event) {
     event.preventDefault();
     var ticket = ticketMaker();
-    alert (ticket.price());
+    
     $(".ticket-display").append(ticket.showTicket());
 
 
