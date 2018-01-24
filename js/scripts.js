@@ -70,11 +70,17 @@ Ticket.prototype.ticketImage = function() {
 //user interface logic
 $(document).ready(function() {
   $('#popcorn').makeItRain();
+  var totalPrice = 0;
+  var ticketQuant = 0
   $("#new-ticket").submit(function(event) {
     event.preventDefault();
     var ticket = ticketMaker();
-    
+    totalPrice = totalPrice + ticket.price();
+    ticketQuant++;
     $(".ticket-display").append(ticket.showTicket());
+    $("#totalCost").text("Total Cost : $" + totalPrice);
+    $("#numOfTickets").text("Total number of tickets : " + ticketQuant);
+
 
 
     // $("#ticketTime").text(ticket.time);

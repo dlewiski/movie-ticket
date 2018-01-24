@@ -9,7 +9,13 @@
 
 #ticketPrice {
   color: green;
+}
 
+body{
+  background-image:url(../img/theatre.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 #popcorn{
@@ -22,4 +28,11 @@ ul{
 }
 li{
   list-style-type: none;
+}
+.totals{
+  color: white;
+}
+
+label{
+  color: white;
 }
